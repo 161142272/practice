@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define OK 1
+#define ERROR 0
+#define MAXSIZE 100  // 栈/队列的最大容量
+
+// 给int起小名叫Status，专门表示函数执行状态
+typedef int Status;
+// 定义二叉树结点的结构体
+typedef char ElemType;  // 假设结点里存的是字符，方便打印
+typedef struct BiTNode {
+    ElemType data;           // 结点里存的内容
+    struct BiTNode *lchild;  // 指向左孩子的指针
+    struct BiTNode *rchild;  // 指向右孩子的指针
+} BiTNode, *BiTree;
+
+// 栈的定义（非递归遍历用）
+typedef struct {
+    BiTree data[MAXSIZE];
+    int top;  // 栈顶指针
+} SqStack;
+
+// 队列的定义（层序遍历用）
+typedef struct {
+    BiTree data[MAXSIZE];
+    int front, rear;  // 队头、队尾指针
+} SqQueue;
